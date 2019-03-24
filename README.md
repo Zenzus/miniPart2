@@ -35,7 +35,19 @@ It is much easier to both design, maintain, and repair a NoSQL database than is 
 You can essentially extend NoSQL storage by simply "slapping on" extra storage.
 Cons:
 
+
+
 NoSQL is still(in database terms) young, especially the newer models. This means that you have less established standards and risk an overall less stable database over time. One can compare it to different ways of constructing a house. The new way might be faster, but is it still not known if it is as stable long term as the old way.
 Harder to extract data for analytics. The way many NoSQL databases, looking specifically at MongoDB here, are designed it is much harder to extract analytically relevant data such as "british male users age 20-29".
 Explain reasons to add a layer like Mongoose, on top on of a schema-less database like MongoDB
 Mongoose helps ensure the data added to MongoDB remains similar, eg. that there are no harmful differences between two "person" or two "house".
+
+
+
+
+One: favor embedding unless there is a compelling reason not to
+Two: needing to access an object on its own is a compelling reason not to embed it
+Three: Arrays should not grow without bound. If there are more than a couple of hundred documents on the “many” side, don’t embed them; if there are more than a few thousand documents on the “many” side, don’t use an array of ObjectID references. High-cardinality arrays are a compelling reason not to embed.
+Four: Don’t be afraid of application-level joins: if you index correctly and use the projection specifier (as shown in part 2) then application-level joins are barely more expensive than server-side joins in a relational database.
+Five: Consider the write/read ratio when denormalizing. A field that will mostly be read and only seldom updated is a good candidate for denormalization: if you denormalize a field that is updated frequently then the extra work of finding and updating all the instances is likely to overwhelm the savings that you get from denormalizing.
+Six: As always with MongoDB, how you model your data depends – entirely – on your particular application’s data access patterns. You want to structure your data to match the ways that your application queries and updates it.
