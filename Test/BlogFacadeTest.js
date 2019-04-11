@@ -1,3 +1,4 @@
+/*
 const expect = require('chai').expect;
 
 const dbConnect = require("../dbConnect");
@@ -36,7 +37,7 @@ describe("Testing the BlogFacade", function () {
             (
             "This is a blog about a place",
             { longitude: 50, latitude: 13 },
-            u
+            userID.author
             )
             .catch((err) => { throw err });
 
@@ -46,4 +47,4 @@ describe("Testing the BlogFacade", function () {
 
 
 })
-
+*/

@@ -1,6 +1,6 @@
 var connect = require("./dbconnect");
 connect(require("./settings").DEV_DB_URI);
-
+let PORT = "1234"
 
 
 var createError = require('http-errors');
@@ -13,6 +13,7 @@ var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 
 var app = express();
+
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -43,4 +44,5 @@ app.use(function(err, req, res, next) {
   res.render('error');
 });
 
+app.listen(PORT,()=> "Server Started, listening on port: " + PORT);
 module.exports = app;

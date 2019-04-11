@@ -1,3 +1,4 @@
+/*
 var mongoose = require("mongoose");
 var Schema = mongoose.Schema;
 
@@ -26,3 +27,4 @@ LocationBlogSchema.pre("update", function(next) {
 
 var LocationBlog = mongoose.model("LoationBlog", LocationBlogSchema);
 module.exports = LocationBlog;
+*/
