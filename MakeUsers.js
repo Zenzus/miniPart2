@@ -31,6 +31,8 @@ try {
   var u = new User({firstName : "Kurt",lastName : "Wonnegut", userName :"ckw",password: "c",email:"kw@c.dk"});
   await u.save();
   console.log(users);
+
+  
    var positions = [positionCreator(10, 11, users[0]._id),positionCreator(11, 12, users[1]._id, true),
   ]
   await Position.insertMany(positions)

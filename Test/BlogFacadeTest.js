@@ -1,4 +1,5 @@
-/*
+
+
 const expect = require('chai').expect;
 
 const dbConnect = require("../dbConnect");
@@ -37,14 +38,15 @@ describe("Testing the BlogFacade", function () {
             (
             "This is a blog about a place",
             { longitude: 50, latitude: 13 },
-            userID.author
+            userID._id
             )
+
             .catch((err) => { throw err });
 
 
-        expect(log.author).to.be.equal(userID);
+        expect(log.author._id).to.be.equal(userID._id);
     })
 
 
 })
-*/
+

@@ -3,7 +3,7 @@ var connect = require("../dbConnect.js");
 
 var User = require("../models/User.js");
 
-async function addUsers(firstName, lastName , userName, password, email) {
+async function addUser(firstName, lastName , userName, password, email) {
 
     var user = new User
      ({
@@ -19,13 +19,15 @@ async function addUsers(firstName, lastName , userName, password, email) {
 }
 
 
-async function getAllUser(){
+async function getAllUsers(){
    
     return await User.find({});
 }
 
 async function getUserByName(userName){
 
+
+   
     return await User.find({"userName" : userName});
 }
 
@@ -35,8 +37,8 @@ async function deleteUser(userName){
 
 module.exports = 
 {
-    addUsers,
-    getAllUser,
+    addUser,
+    getAllUsers,
     getUserByName,
     deleteUser
 }

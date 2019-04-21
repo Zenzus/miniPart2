@@ -32,7 +32,7 @@ describe("Test of UserFacde Basic API", function () {
     })
 
     it("Get all Users", async function(){
-        var users = await userFacade.getAllUser();
+        var users = await userFacade.getAllUsers();
         expect(users.length).to.be.equal(4);
 
     })
